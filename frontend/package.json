@@ -2,7 +2,6 @@
   "name": "frontend",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
     "start": "npx serve -s dist/frontend",
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
