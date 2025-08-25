@@ -1,16 +1,9 @@
 const mongoose = require("mongoose");
 
 const customerSchema = new mongoose.Schema({
-  name: String,
-  email: { type: String, unique: true },
-  phone: { type: String, unique: true },
-});
-
-module.exports = mongoose.model("Customer", customerSchema);
-
-const CustomerSchema = mongoose.Schema({
   date: {
     type: Date,
+    default: Date.now, // optional: auto-fill
   },
   name: {
     type: String,
@@ -19,13 +12,14 @@ const CustomerSchema = mongoose.Schema({
   email: {
     type: String,
     required: true,
+    unique: true, // ensures unique email
   },
   phone: {
     type: String,
     required: true,
+    unique: true, // ensures unique phone
   },
 });
 
-const Customer = mongoose.model("customers", CustomerSchema);
-
-module.exports = Customer;
+// Export a single model
+module.exports = mongoose.model("Customer", customerSchema);
