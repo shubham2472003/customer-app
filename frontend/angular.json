@@ -32,6 +32,11 @@
             "outputMode": "server",
             "ssr": {
               "entry": "src/server.ts"
+            },
+            "prerender": {
+              "routes": [
+                "/"   // ✅ only prerender homepage, not dynamic routes
+              ]
             }
           },
           "configurations": {
@@ -94,3 +99,4 @@
     "analytics": false
   }
 }
+
