@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npx serve -s dist/frontend",       
-    "build": "ng build --configuration production",  
+    "start": "npx serve -s dist/frontend",
+    "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -26,7 +26,6 @@
   "devDependencies": {
     "@angular/cli": "^20.2.0",
     "@angular/compiler-cli": "^20.2.0",
-    "@angular-devkit/build-angular": "^20.2.0",  // REQUIRED for production build
     "@types/node": "^20.17.19",
     "typescript": "~5.9.2",
     "serve": "^14.2.0"
