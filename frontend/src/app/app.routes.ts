@@ -16,11 +16,11 @@ export const routes: Routes = [
   {
     path: 'edit/:id',
     component: CustomerEditComponent,
-    data: { prerender: false }, // Disable prerendering for this route
+    data: { renderMode: 'dynamic' }, // Correct way to disable prerendering
   },
   {
     path: 'details/:id',
     component: CustomerDetailsComponent,
-    data: { prerender: false }, // Disable prerendering for this route
+    data: { renderMode: 'dynamic' }, // Correct way to disable prerendering
   },
 ];
