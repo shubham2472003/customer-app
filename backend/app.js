@@ -3,7 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 
 const app = express();
-const PORT = 36971;
+const PORT = process.env.PORT || 5000; // ✅ use Render’s port
 
 // enable cors
 app.use(cors());
@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // route the customer api
-const customerRoutes = require("./routes/customer"); // ✅ make sure file matches
+const customerRoutes = require("./routes/customer");
 app.use("/api/customers", customerRoutes);
 
 app.get("/", (req, res) => {
@@ -23,11 +23,10 @@ async function main() {
   try {
     mongoose.set("strictQuery", true);
 
-    // ✅ Use correct connection string
-    const connectionString =
-      "mongodb+srv://shubhamrawat2472003:R0VmFPGp7Ph0uw8Y@cluster0.7yussm6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-    await mongoose.connect(connectionString);
+    // ✅ Use environment variable instead of hardcoding
+    const connectionString = process.env.MONGODB_URI;
 
+    await mongoose.connect(connectionString);
     console.log("✅ MongoDB connected");
 
     app.listen(PORT, () => {
@@ -41,3 +40,4 @@ async function main() {
 main();
 
 module.exports = app;
+
