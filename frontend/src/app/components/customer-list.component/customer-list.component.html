@@ -1,0 +1,29 @@
+<h2 class="mb-4 text-center">📋 Customer List</h2>
+
+<div class="text-center mb-3">
+  <button mat-raised-button color="primary" [routerLink]="'/create'">➕ Create New Customer</button>
+</div>
+
+<div *ngFor="let customer of customers" class="customer-card mat-elevation-z4">
+  <div class="customer-info">
+    <h4>{{ customer.name }}</h4>
+    <p>Email: {{ customer.email }}</p>
+    <p>Phone: {{ customer.phone }}</p>
+  </div>
+  <div class="customer-actions">
+    <button mat-icon-button color="accent" [routerLink]="'/edit/' + customer._id" matTooltip="Edit">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      color="primary"
+      [routerLink]="'/details/' + customer._id"
+      matTooltip="View Details"
+    >
+      <mat-icon>visibility</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" (click)="onDeleteClick(customer)" matTooltip="Delete">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>

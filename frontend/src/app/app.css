@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical center */
+  align-items: center; /* horizontal center */
+  min-height: 100vh; /* full page height */
+  text-align: center;
+  background: #f5f7fa; /* soft background */
+  padding: 24px;
+}
+
+.container h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #3f51b5; /* material primary color */
+}
