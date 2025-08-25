@@ -6,11 +6,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { CustomerService } from '../../services/customer';
+import { CommonModule } from '@angular/common'; // <-- IMPORT THIS
 
 @Component({
   selector: 'app-customer-create',
   standalone: true,
   imports: [
+    CommonModule,            // <-- add this for *ngIf, *ngFor, etc.
     MatButtonModule,
     RouterModule,
     ReactiveFormsModule,
@@ -19,13 +21,12 @@ import { CustomerService } from '../../services/customer';
     MatIconModule,
   ],
   templateUrl: './customer-create.component.html',
-  styleUrl: './customer-create.component.css',
+  styleUrls: ['./customer-create.component.css'], // <-- fix typo (styleUrls instead of styleUrl)
 })
 export class CustomerCreateComponent implements OnInit {
   private customerService = inject(CustomerService);
 
   form!: FormGroup;
-
   router = inject(Router);
 
   ngOnInit(): void {
@@ -37,7 +38,6 @@ export class CustomerCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    // validate the form
     if (this.form.valid) {
       this.customerService.post(this.form.value).subscribe(
         (data) => {
@@ -51,3 +51,4 @@ export class CustomerCreateComponent implements OnInit {
     }
   }
 }
+
