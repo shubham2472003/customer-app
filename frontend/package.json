@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npx serve -s dist/frontend",       // serve built files
-    "build": "ng build --configuration production",  // production build
+    "start": "npx serve -s dist/frontend",       
+    "build": "ng build --configuration production",  
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
