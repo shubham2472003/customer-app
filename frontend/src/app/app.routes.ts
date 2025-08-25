@@ -16,9 +16,11 @@ export const routes: Routes = [
   {
     path: 'edit/:id',
     component: CustomerEditComponent,
+    data: { prerender: false }, // Disable prerendering for this route
   },
   {
     path: 'details/:id',
     component: CustomerDetailsComponent,
+    data: { prerender: false }, // Disable prerendering for this route
   },
 ];
